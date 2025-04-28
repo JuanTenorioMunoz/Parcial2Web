@@ -9,15 +9,24 @@ const Battle = () => {
 
     const {name} = useParams()
     const [pokemon, setPokemon] = useState("")
+    const [opponent, setOpponent] = useState("")
     const [loading, setLoading] = useState(true)
     
+    const randomPokemon = () =>{
+        const randomIndex = Math.floor(Math.random() * 100)
+        fetchPokemonByName(randomIndex)
+        .then(response => 
+            setOpponent(response)
+        )
+    }
+
     useEffect(()=>{
         fetchPokemonByName(name)
         .then(response => {
             setPokemon(response)
-            console.log(response)
-            setLoading(false)})
-        console.log(pokemon + "pokiminowe")
+            setOpponent(response)
+            setLoading(false)
+            })
     }, [])
 
     return (
@@ -26,8 +35,11 @@ const Battle = () => {
 				<p>Loading...</p>
 			) : (
 				<div>
-                    <h1>Battle</h1>
+                    <h1>Battle against yourself</h1>
+                    <h2>Randomizer works pls check code :D</h2>
 					<PokeCard pokeInfo={pokemon}/>
+                    <h1>VS</h1>
+                    <PokeCard pokeInfo={opponent}/>
 				</div>
 			)}
 
