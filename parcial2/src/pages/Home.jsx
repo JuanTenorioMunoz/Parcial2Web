@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchPokemonByName } from "../services/FetchPokemon";
 import PokeCard from "../components/PokeCard/PokeCard";
+import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
     const [pokemon, setPokemon] = useState("")
     const [pokeQuery, setPokeQuery] = useState("pikachu")
     const [loading, setLoading] = useState(true)
+    const navigate = useNavigate();
 
     useEffect(()=>{
         fetchPokemonByName(pokeQuery)
@@ -18,6 +20,9 @@ const Home = () => {
         console.log(pokemon + "pokiminowe")
     }, [])
 
+    const setQuery = (input) =>{
+    }
+
     return (
 		<div>
 			{loading ? (
@@ -27,6 +32,9 @@ const Home = () => {
 					<PokeCard pokeInfo={pokemon}/>
 				</div>
 			)}
+
+            <button onClick={()=>navigate(`/battle/${pokemon.name}`)}>BATTLE</button>
+
 		</div>
 	);
 
