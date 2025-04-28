@@ -5,6 +5,7 @@ import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Battle from './pages/Battle'
+import Ranking from './pages/Ranking'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,8 +15,8 @@ function App() {
      <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/Battle' element={<Battle/>}/>
-          <Route path='/Ranking' element={<Ranking/>}/>
+          <Route path='/battle' element={<Battle/>}/>
+          <Route path='/ranking' element={<Ranking/>}/>
         </Routes>
      </BrowserRouter>
     </>
