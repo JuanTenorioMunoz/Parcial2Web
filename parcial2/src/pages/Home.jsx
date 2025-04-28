@@ -4,7 +4,7 @@ import { fetchPokemonByName } from "../services/FetchPokemon";
 const Home = () => {
 
     const [pokemon, setPokemon] = useState("")
-    const [pokeQuery, setPokeQuery] = useState("pokemon/ditto")
+    const [pokeQuery, setPokeQuery] = useState("ditto")
 
     useEffect(()=>{
         fetchPokemonByName(pokeQuery)
@@ -12,12 +12,15 @@ const Home = () => {
             setPokemon(response)
             console.log(response)})
         console.log(pokemon + "pokiminowe")
+        
     }, [])
+
+//HP, ataque, defensa, nombre
 
     return(
         <>
-        <p>HOME</p>
-
+        <h1>{pokeQuery}</h1>
+        <p>{}</p>
         </>
     )
 }
