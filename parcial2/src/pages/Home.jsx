@@ -26,7 +26,7 @@ const Home = () => {
 
     return (
 		<div>
-            <input onchange={setQuery}></input>
+            <input onChange={(e) => setQuery(e)}></input>
 			{loading ? (
 				<p>Loading...</p>
 			) : (
