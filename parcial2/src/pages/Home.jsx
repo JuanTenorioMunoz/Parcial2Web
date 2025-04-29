@@ -21,7 +21,8 @@ const Home = () => {
     }, [pokeQuery])
 
     const setQuery = (event) =>{
-        setPokeQuery(event.target.value)
+        if(event.target.value.length > 0)
+            {setPokeQuery(event.target.value)}
     }
 
     return (
