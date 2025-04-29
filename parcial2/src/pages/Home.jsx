@@ -18,13 +18,15 @@ const Home = () => {
             console.log(response)
             setLoading(false)})
         console.log(pokemon + "pokiminowe")
-    }, [])
+    }, [pokeQuery])
 
-    const setQuery = (input) =>{
+    const setQuery = (event) =>{
+        setPokeQuery(event.target.value)
     }
 
     return (
 		<div>
+            <input onchange={setQuery}></input>
 			{loading ? (
 				<p>Loading...</p>
 			) : (
